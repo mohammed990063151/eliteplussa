@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elite Plus — Sovereign-Aligned Capital Gateway</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body id="top">
+
+  <!-- ==================== الهيدر ==================== -->
+  <header>
+    <div class="header-inner">
+      <a href="#top" class="logo">
+        <span class="logo-mark text-gradient-gold">E+</span>
+        <span class="logo-text">Elite <span>Plus</span></span>
+      </a>
+
+      <div class="header-actions">
+        <nav class="desktop-nav">
+          <a href="https://sub.eliteplussa.com/" target="_blank" rel="noopener noreferrer" data-i18n="nav.wallet">Wallet</a>
+          <a href="#top" class="active" data-i18n="nav.gateway">Gateway</a>
+          <a href="#sectors" data-i18n="nav.sectors">Strategic Sectors</a>
+          <a href="#partners" data-i18n="nav.partners">Partners</a>
+          <a href="team.html" data-i18n="nav.team">Team</a>
+          <a href="#alliance" data-i18n="nav.alliance">The Alliance</a>
+          <a href="#contact" data-i18n="nav.contact">Institutional Portal</a>
+        </nav>
+
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="active" onclick="setLanguage('en')">EN</button>
+          <button type="button" data-lang="ar" onclick="setLanguage('ar')">عربي</button>
+        </div>
+
+        <button class="menu-btn" data-i18n-aria="nav.menu" aria-label="Toggle menu" onclick="toggleMenu()">
+          <svg id="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          <svg id="icon-close" style="display:none" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="https://sub.eliteplussa.com/" target="_blank" rel="noopener noreferrer" data-i18n="nav.wallet">Wallet</a>
+      <a href="#top" onclick="closeMenu()" data-i18n="nav.gateway">Gateway</a>
+      <a href="#sectors" onclick="closeMenu()" data-i18n="nav.sectors">Strategic Sectors</a>
+      <a href="#partners" onclick="closeMenu()" data-i18n="nav.partners">Partners</a>
+      <a href="team.html" data-i18n="nav.team">Team</a>
+      <a href="#alliance" onclick="closeMenu()" data-i18n="nav.alliance">The Alliance</a>
+      <a href="#contact" onclick="closeMenu()" data-i18n="nav.contact">Institutional Portal</a>
+    </div>
+  </header>
+
+  <!-- ==================== قسم البداية ==================== -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="hero.eyebrow">Sovereign-Aligned Gateway</span>
+        <h1 data-i18n="hero.title">Welcome to the future of investment connections</h1>
+        <p data-i18n="hero.body">Elite Plus is a specialized investment platform connecting investment funds, corporations, and strategic investors with secure, high-value investment opportunities across strategic sectors.</p>
+        <div>
+          <a href="#contact" class="btn-primary">
+            <span data-i18n="hero.cta">Request Allocation Access</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-image reveal d1">
+        <img src="hero.jpg" data-i18n-alt="hero.alt" alt="Riyadh skyline at night, financial district towers" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== قسم الأرقام ==================== -->
+  <section class="stats">
+    <div class="stats-inner">
+      <div class="reveal">
+        <span class="eyebrow" data-i18n="stats.eyebrow">Institutional Credibility</span>
+        <h2 class="section-title" data-i18n="stats.title">Vetted by Connected Capital</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="reveal">
+          <div class="stat-value">SAR 15B+</div>
+          <div class="stat-label" data-i18n="stats.pipeline">originated pipeline</div>
+        </div>
+        <div class="reveal d1">
+          <div class="stat-value">6</div>
+          <div class="stat-label" data-i18n="stats.sectors">strategic sectors</div>
+        </div>
+        <div class="reveal d2">
+          <div class="stat-value">100%</div>
+          <div class="stat-label" data-i18n="stats.compliance">institutional compliance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== قسم القطاعات ==================== -->
+  <section id="sectors" class="sectors">
+    <div class="sectors-head reveal">
+      <div class="dot-eyebrow">
+        <span class="dot"></span>
+        <span class="eyebrow" data-i18n="sectors.eyebrow">Targeted Deal Flow</span>
+      </div>
+      <h2 class="section-title" data-i18n="sectors.title">Six Strategic Sectors</h2>
+      <p data-i18n="sectors.body">We focus exclusively on high-barrier industries critical to the Kingdom&rsquo;s industrial expansion and sovereign alignment.</p>
+    </div>
+
+    <div class="sectors-grid">
+      <div class="sector-card reveal">
+        <span class="sector-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+        </span>
+        <h3 data-i18n="sectors.petro.title">Petrochemicals</h3>
+        <p data-i18n="sectors.petro.body">Downstream value chain integration and high-capacity processing facilities.</p>
+      </div>
+
+      <div class="sector-card reveal d1">
+        <span class="sector-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></svg>
+        </span>
+        <h3 data-i18n="sectors.infra.title">Infrastructure</h3>
+        <p data-i18n="sectors.infra.body">Sovereign-aligned transport, logistics, and utility networks.</p>
+      </div>
+
+      <div class="sector-card reveal d2">
+        <span class="sector-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        </span>
+        <h3 data-i18n="sectors.mfg.title">Manufacturing</h3>
+        <p data-i18n="sectors.mfg.body">High-precision industrial plants and localized supply chain developments.</p>
+      </div>
+
+      <div class="sector-card reveal">
+        <span class="sector-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+        </span>
+        <h3 data-i18n="sectors.tech.title">Technology</h3>
+        <p data-i18n="sectors.tech.body">Enterprise-grade digital infrastructure and localized defense tech integration.</p>
+      </div>
+
+      <div class="sector-card reveal d1">
+        <span class="sector-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+        </span>
+        <h3 data-i18n="sectors.health.title">Healthcare</h3>
+        <p data-i18n="sectors.health.body">Specialized clinical networks and advanced pharmaceutical manufacturing.</p>
+      </div>
+
+      <div class="sector-card reveal d2">
+        <span class="sector-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </span>
+        <h3 data-i18n="sectors.exp.title">Expansion</h3>
+        <p data-i18n="sectors.exp.body">Late-stage scaling for established enterprises entering regional joint ventures.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== قسم الشركاء ==================== -->
+  <section id="partners" class="partners">
+    <div class="partners-inner">
+      <div class="partners-head reveal">
+        <div class="dot-eyebrow">
+          <span class="dot"></span>
+          <span class="eyebrow" data-i18n="partners.eyebrow">Strategic Network</span>
+        </div>
+        <h2 class="section-title" data-i18n="partners.title">Our Partners</h2>
+        <p data-i18n="partners.body">Trusted relationships across capital, real estate, technology, and industrial execution.</p>
+      </div>
+
+      <div class="partners-marquee reveal">
+        <div class="partners-track">
+          <div class="partners-group">
+            <div class="partner-logo"><img src="partners/alteia-capital.png" alt="ALTEIA Capital" /></div>
+            <div class="partner-logo"><img src="partners/oren.png" alt="Oren" /></div>
+            <div class="partner-logo"><img src="partners/coldwell-banker.png" alt="Coldwell Banker" /></div>
+            <div class="partner-logo"><img src="partners/ex-nit.png" alt="EX NIT" /></div>
+            <div class="partner-logo"><img src="partners/ratcco-group.png" alt="RATCCO GROUP" /></div>
+            <div class="partner-logo"><img src="partners/swiss-group.png" alt="SWISS GROUP" /></div>
+            <div class="partner-logo"><img src="partners/speed-link.png" alt="SPEED LINK" /></div>
+            <div class="partner-logo"><img src="partners/asa-consultants.png" alt="ASA CONSULTANTS" /></div>
+          </div>
+          <div class="partners-group" aria-hidden="true">
+            <div class="partner-logo"><img src="partners/alteia-capital.png" alt="" /></div>
+            <div class="partner-logo"><img src="partners/oren.png" alt="" /></div>
+            <div class="partner-logo"><img src="partners/coldwell-banker.png" alt="" /></div>
+            <div class="partner-logo"><img src="partners/ex-nit.png" alt="" /></div>
+            <div class="partner-logo"><img src="partners/ratcco-group.png" alt="" /></div>
+            <div class="partner-logo"><img src="partners/swiss-group.png" alt="" /></div>
+            <div class="partner-logo"><img src="partners/speed-link.png" alt="" /></div>
+            <div class="partner-logo"><img src="partners/asa-consultants.png" alt="" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== قسم التحالف ==================== -->
+  <section id="alliance" class="alliance">
+    <div class="alliance-inner reveal">
+      <h2 data-i18n="alliance.title">Initiate Deal-Flow Access</h2>
+      <p data-i18n="alliance.body">Connect with our Riyadh-based allocation team to secure institutional-grade access to vetted Saudi industrial expansion projects.</p>
+      <a href="#contact" class="btn-light" data-i18n="alliance.cta">Request Allocation Access</a>
+    </div>
+  </section>
+
+  <!-- ==================== الفوتر ==================== -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-line"></div>
+          <h3>Elite Plus</h3>
+          <p data-i18n="footer.tagline">Sovereign-aligned capital gateway.</p>
+        </div>
+
+        <div class="footer-right">
+          <div class="footer-links">
+            <a href="#top" data-i18n="footer.gateway">Gateway</a>
+            <span>&mdash;</span>
+            <a href="#sectors" data-i18n="footer.sectors">Sectors</a>
+            <span>&mdash;</span>
+            <a href="#partners" data-i18n="footer.partners">Partners</a>
+            <span>&mdash;</span>
+            <a href="team.html" data-i18n="footer.team">Team</a>
+            <span>&mdash;</span>
+            <a href="#alliance" data-i18n="footer.alliance">Alliance</a>
+            <span>&mdash;</span>
+            <a href="#contact" data-i18n="footer.contact">Contact</a>
+          </div>
+          <div>
+            <p class="footer-inquiries-label" data-i18n="footer.inquiries">Inquiries</p>
+            <div class="footer-inquiries">
+              <p data-i18n="footer.city">Riyadh, Kingdom of Saudi Arabia</p>
+              <p>allocations@eliteplus.sa</p>
+              <p data-i18n="footer.alignment">Under Connected Capital alignment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> <span data-i18n="footer.copy">Elite Plus — Institutional-grade execution in high-barrier sectors.</span></p>
+        <p class="footer-umbrella" data-i18n="footer.umbrella">Connected Capital Umbrella</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="i18n.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function toggleMenu() {
+    const nav = document.getElementById('mobileNav');
+    const open = nav.classList.toggle('open');
+    document.getElementById('icon-menu').style.display = open ? 'none' : 'block';
+    document.getElementById('icon-close').style.display = open ? 'block' : 'none';
+  }
+  function closeMenu() {
+    document.getElementById('mobileNav').classList.remove('open');
+    document.getElementById('icon-menu').style.display = 'block';
+    document.getElementById('icon-close').style.display = 'none';
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
+</body>
+</html>

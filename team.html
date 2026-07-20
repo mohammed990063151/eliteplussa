@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Team — Elite Plus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-title-key="team.meta">
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark text-gradient-gold">E+</span>
+        <span class="logo-text">Elite <span>Plus</span></span>
+      </a>
+
+      <div class="header-actions">
+        <nav class="desktop-nav">
+          <a href="https://sub.eliteplussa.com/" target="_blank" rel="noopener noreferrer" data-i18n="nav.wallet">Wallet</a>
+          <a href="index.html" data-i18n="nav.gateway">Gateway</a>
+          <a href="index.html#sectors" data-i18n="nav.sectors">Strategic Sectors</a>
+          <a href="index.html#partners" data-i18n="nav.partners">Partners</a>
+          <a href="team.html" class="active" data-i18n="nav.team">Team</a>
+          <a href="index.html#alliance" data-i18n="nav.alliance">The Alliance</a>
+          <a href="#contact" data-i18n="nav.contact">Institutional Portal</a>
+        </nav>
+
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang="en" class="active" onclick="setLanguage('en')">EN</button>
+          <button type="button" data-lang="ar" onclick="setLanguage('ar')">عربي</button>
+        </div>
+
+        <button class="menu-btn" data-i18n-aria="nav.menu" aria-label="Toggle menu" onclick="toggleMenu()">
+          <svg id="icon-menu" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          <svg id="icon-close" style="display:none" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="https://sub.eliteplussa.com/" target="_blank" rel="noopener noreferrer" data-i18n="nav.wallet">Wallet</a>
+      <a href="index.html" data-i18n="nav.gateway">Gateway</a>
+      <a href="index.html#sectors" data-i18n="nav.sectors">Strategic Sectors</a>
+      <a href="index.html#partners" data-i18n="nav.partners">Partners</a>
+      <a href="team.html" data-i18n="nav.team">Team</a>
+      <a href="index.html#alliance" data-i18n="nav.alliance">The Alliance</a>
+      <a href="#contact" onclick="closeMenu()" data-i18n="nav.contact">Institutional Portal</a>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="reveal">
+      <span class="eyebrow" data-i18n="team.eyebrow">People &amp; Execution</span>
+      <h1 data-i18n="team.title">Our Team</h1>
+      <p data-i18n="team.body">A Riyadh-based allocation unit combining institutional discipline with deep regional deal-flow access across the Kingdom’s strategic sectors.</p>
+    </div>
+  </section>
+
+  <section class="team">
+    <div class="team-grid">
+      <article class="team-role reveal">
+        <span class="role-num" data-i18n="team.r1.num">01</span>
+        <h3 data-i18n="team.r1.title">Capital Allocation</h3>
+        <p data-i18n="team.r1.body">Structures institutional access to vetted opportunities and aligns capital with sovereign-priority industrial growth.</p>
+      </article>
+
+      <article class="team-role reveal d1">
+        <span class="role-num" data-i18n="team.r2.num">02</span>
+        <h3 data-i18n="team.r2.title">Deal Origination</h3>
+        <p data-i18n="team.r2.body">Sources and qualifies high-barrier projects across petrochemicals, infrastructure, manufacturing, and technology.</p>
+      </article>
+
+      <article class="team-role reveal">
+        <span class="role-num" data-i18n="team.r3.num">03</span>
+        <h3 data-i18n="team.r3.title">Institutional Relations</h3>
+        <p data-i18n="team.r3.body">Maintains trusted channels with funds, corporates, and strategic partners across the Connected Capital network.</p>
+      </article>
+
+      <article class="team-role reveal d1">
+        <span class="role-num" data-i18n="team.r4.num">04</span>
+        <h3 data-i18n="team.r4.title">Compliance &amp; Governance</h3>
+        <p data-i18n="team.r4.body">Upholds institutional standards, diligence protocols, and governance frameworks across every allocation pathway.</p>
+      </article>
+    </div>
+
+    <div class="team-cta reveal">
+      <h2 data-i18n="team.cta.title">Connect with the allocation team</h2>
+      <p data-i18n="team.cta.body">Request institutional access and speak directly with our Riyadh desk.</p>
+      <a href="#contact" class="btn-primary" data-i18n="team.cta.btn">Request Allocation Access</a>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-line"></div>
+          <h3>Elite Plus</h3>
+          <p data-i18n="footer.tagline">Sovereign-aligned capital gateway.</p>
+        </div>
+
+        <div class="footer-right">
+          <div class="footer-links">
+            <a href="index.html" data-i18n="footer.gateway">Gateway</a>
+            <span>&mdash;</span>
+            <a href="index.html#sectors" data-i18n="footer.sectors">Sectors</a>
+            <span>&mdash;</span>
+            <a href="index.html#partners" data-i18n="footer.partners">Partners</a>
+            <span>&mdash;</span>
+            <a href="team.html" data-i18n="footer.team">Team</a>
+            <span>&mdash;</span>
+            <a href="index.html#alliance" data-i18n="footer.alliance">Alliance</a>
+            <span>&mdash;</span>
+            <a href="#contact" data-i18n="footer.contact">Contact</a>
+          </div>
+          <div>
+            <p class="footer-inquiries-label" data-i18n="footer.inquiries">Inquiries</p>
+            <div class="footer-inquiries">
+              <p data-i18n="footer.city">Riyadh, Kingdom of Saudi Arabia</p>
+              <p>allocations@eliteplus.sa</p>
+              <p data-i18n="footer.alignment">Under Connected Capital alignment</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> <span data-i18n="footer.copy">Elite Plus — Institutional-grade execution in high-barrier sectors.</span></p>
+        <p class="footer-umbrella" data-i18n="footer.umbrella">Connected Capital Umbrella</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="i18n.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function toggleMenu() {
+    const nav = document.getElementById('mobileNav');
+    const open = nav.classList.toggle('open');
+    document.getElementById('icon-menu').style.display = open ? 'none' : 'block';
+    document.getElementById('icon-close').style.display = open ? 'block' : 'none';
+  }
+  function closeMenu() {
+    document.getElementById('mobileNav').classList.remove('open');
+    document.getElementById('icon-menu').style.display = 'block';
+    document.getElementById('icon-close').style.display = 'none';
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+</script>
+</body>
+</html>
