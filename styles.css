@@ -28,12 +28,14 @@ body {
 html[dir="rtl"] body { font-family: 'Cairo', 'DM Sans', sans-serif; }
 html[dir="rtl"] .logo-text,
 html[dir="rtl"] .hero h1,
+html[dir="rtl"] .hero-brand,
 html[dir="rtl"] .section-title,
 html[dir="rtl"] .stat-value,
 html[dir="rtl"] .sector-card h3,
 html[dir="rtl"] .alliance h2,
 html[dir="rtl"] .footer-brand h3,
 html[dir="rtl"] .page-hero h1,
+html[dir="rtl"] .team-member h3,
 html[dir="rtl"] .team-role h3 {
   font-family: 'Noto Naskh Arabic', 'Playfair Display', serif;
 }
@@ -53,8 +55,15 @@ header {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 50;
-  border-bottom: 1px solid hsla(30, 12%, 20%, 0.5);
-  background: hsla(20, 15%, 5%, 0.9);
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+}
+header.header-solid {
+  border-bottom-color: hsla(30, 12%, 20%, 0.5);
+  background: hsla(20, 15%, 5%, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
@@ -146,20 +155,67 @@ nav.desktop-nav a.active {
   .menu-btn, .mobile-nav { display: none !important; }
 }
 
-/* ============ قسم البداية (Hero) ============ */
+/* ============ قسم البداية — بنر فيديو بعرض كامل ============ */
 .hero {
   position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
   overflow: hidden;
-  padding: 9rem 0 6rem;
+  padding: 0;
 }
-.hero-grid {
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-video,
+.hero-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-video {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.hero-video.is-ready { opacity: 1; }
+.hero-fallback {
+  z-index: 0;
+  opacity: 1;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, hsla(20, 15%, 5%, 0.55) 0%, hsla(20, 15%, 5%, 0.35) 40%, hsla(20, 15%, 5%, 0.92) 100%),
+    radial-gradient(ellipse 80% 60% at 70% 40%, hsla(30, 42%, 39%, 0.22), transparent 65%);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   max-width: 90rem;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: 3.5rem;
-  padding: 0 1.5rem;
+  padding: 8rem 1.5rem 7rem;
+}
+@media (min-width: 1024px) {
+  .hero-content { padding: 10rem 3rem 8rem; }
+}
+.hero-copy { max-width: 40rem; }
+.hero-brand {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
 }
 .eyebrow {
   font-size: 0.75rem;
@@ -170,22 +226,23 @@ nav.desktop-nav a.active {
 }
 html[dir="rtl"] .eyebrow { letter-spacing: 0.1em; }
 .hero h1 {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   font-family: var(--font-display);
-  font-size: 3rem;
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
   font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: -0.025em;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 18ch;
 }
-.hero p {
-  margin-top: 1.75rem;
+.hero-copy > p:not(.hero-brand) {
+  margin-top: 1.25rem;
   max-width: 32rem;
   font-size: 1rem;
   line-height: 1.65;
-  color: var(--muted-foreground);
+  color: hsla(36, 30%, 93%, 0.78);
 }
+.hero-actions { margin-top: 2rem; }
 .btn-primary {
-  margin-top: 2.5rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -201,23 +258,34 @@ html[dir="rtl"] .eyebrow { letter-spacing: 0.1em; }
 .btn-primary:active { transform: scale(0.98); }
 html[dir="rtl"] .btn-primary svg { transform: scaleX(-1); }
 
-.hero-image {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  width: 100%;
-  overflow: hidden;
-  border-radius: var(--radius);
+.hero-scroll {
+  position: absolute;
+  z-index: 2;
+  bottom: 1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: hsla(36, 30%, 93%, 0.55);
+  transition: color 0.2s;
 }
-.hero-image img { height: 100%; width: 100%; object-fit: cover; }
-
-@media (min-width: 1024px) {
-  .hero { padding-top: 11rem; }
-  .hero-grid { grid-template-columns: 1fr 1fr; padding: 0 3rem; }
-  .hero h1 { font-size: 3.75rem; }
-  .hero-image { aspect-ratio: 3 / 4; }
+.hero-scroll:hover { color: var(--accent-gold); }
+.hero-scroll svg {
+  animation: hero-scroll-bounce 1.8s ease-in-out infinite;
 }
-@media (min-width: 640px) and (max-width: 1023px) {
-  .hero h1 { font-size: 3.5rem; }
+@keyframes hero-scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll svg { animation: none; }
+  .hero-video { display: none !important; }
 }
 
 /* ============ قسم الأرقام (Stats) ============ */
@@ -323,57 +391,89 @@ html[dir="rtl"] .btn-primary svg { transform: scaleX(-1); }
   line-height: 1.65;
   color: var(--muted-foreground);
 }
-/* سلايدر الشعارات — يتحرك تلقائياً ويتوقف عند مرور الماوس */
+/* سلايدر الشعارات — صفّان متعاكسان بحركة ناعمة */
 .partners-marquee {
   margin-top: 3.5rem;
   overflow: hidden;
   direction: ltr;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
 }
+.partners-marquee-reverse { margin-top: 1.25rem; }
 .partners-track {
   display: flex;
   width: max-content;
-  animation: partners-scroll 32s linear infinite;
+  animation: partners-scroll 40s linear infinite;
+}
+.partners-marquee-reverse .partners-track {
+  animation-name: partners-scroll-reverse;
+  animation-duration: 48s;
 }
 .partners-marquee:hover .partners-track { animation-play-state: paused; }
 .partners-group {
   display: flex;
-  gap: 1.5rem;
-  padding-inline-end: 1.5rem;
+  gap: 1.25rem;
+  padding-inline-end: 1.25rem;
 }
 @keyframes partners-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+@keyframes partners-scroll-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
 @media (prefers-reduced-motion: reduce) {
-  .partners-track { animation: none; flex-wrap: wrap; width: auto; }
+  .partners-track { animation: none !important; flex-wrap: wrap; width: auto; justify-content: center; }
+  .partners-marquee { -webkit-mask-image: none; mask-image: none; }
 }
 
 .partner-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20rem;
-  height: 12rem;
+  width: 18rem;
+  height: 10.5rem;
   flex-shrink: 0;
   overflow: hidden;
-  border: 1px solid hsla(30, 12%, 20%, 0.55);
+  border: 1px solid hsla(30, 12%, 20%, 0.45);
   border-radius: var(--radius);
   background: #000;
-  transition: border-color 0.25s;
+  transition: border-color 0.3s, transform 0.35s ease, box-shadow 0.35s ease;
+  animation: partner-float 5.5s ease-in-out infinite;
 }
-.partner-logo:hover { border-color: hsla(30, 42%, 39%, 0.65); }
+.partners-group .partner-logo:nth-child(2n) { animation-delay: -1.2s; }
+.partners-group .partner-logo:nth-child(3n) { animation-delay: -2.4s; }
+.partners-group .partner-logo:nth-child(4n) { animation-delay: -3.6s; }
+.partner-logo:hover {
+  border-color: hsla(30, 42%, 39%, 0.75);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 12px 32px hsla(20, 15%, 0%, 0.35);
+  animation-play-state: paused;
+}
+@keyframes partner-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
 /* الصور الأصلية فيها فراغ أسود كبير حول الشعار — التكبير هنا يقصّه ويُظهر الشعار أوضح */
 .partner-logo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transform: scale(1.7);
+  filter: grayscale(0.25) brightness(0.95);
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+.partner-logo:hover img {
+  filter: grayscale(0) brightness(1.05);
+  transform: scale(1.78);
 }
 
 @media (max-width: 639px) {
-  .partner-logo { width: 15rem; height: 9rem; }
+  .partner-logo { width: 14rem; height: 8.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .partner-logo { animation: none; }
 }
 
 /* ============ قسم التحالف (Alliance) ============ */
@@ -437,12 +537,131 @@ html[dir="rtl"] .btn-primary svg { transform: scaleX(-1); }
 
 .team { max-width: 76rem; margin: 0 auto; padding: 2rem 1.5rem 7rem; }
 @media (min-width: 1024px) { .team { padding-left: 3rem; padding-right: 3rem; } }
-.team-grid {
+
+/* قسم الفريق في الصفحة الرئيسية */
+.team-section {
+  border-top: 1px solid hsla(30, 12%, 20%, 0.5);
+  padding: 7rem 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, hsla(30, 42%, 39%, 0.1), transparent 70%),
+    var(--background);
+}
+.team-section-inner { max-width: 90rem; margin: 0 auto; padding: 0 1.5rem; }
+@media (min-width: 1024px) { .team-section-inner { padding: 0 3rem; } }
+.team-section-head { max-width: 42rem; margin: 0 auto; text-align: center; }
+.team-section-head .eyebrow { color: var(--muted-foreground); }
+.team-section-head p {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+.team-section-cta { margin-top: 3rem; text-align: center; }
+.team-section-cta .btn-primary { margin-top: 0; }
+
+.team-members {
+  margin-top: 3.5rem;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
-@media (min-width: 640px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 640px) {
+  .team-members { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .team-members { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+}
+.team-members-page {
+  margin-top: 0;
+}
+@media (min-width: 1024px) {
+  .team-members-page { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid hsla(30, 12%, 20%, 0.55);
+  border-radius: var(--radius);
+  background: hsla(30, 7%, 12%, 0.45);
+  transition: border-color 0.3s, transform 0.35s ease;
+}
+.team-member:hover {
+  border-color: hsla(30, 42%, 39%, 0.55);
+  transform: translateY(-4px);
+}
+.team-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background:
+    linear-gradient(145deg, hsl(30, 12%, 18%) 0%, hsl(30, 20%, 10%) 55%, hsl(30, 35%, 16%) 100%);
+}
+.team-photo::before {
+  content: attr(data-initials);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: hsla(30, 45%, 80%, 0.45);
+  z-index: 0;
+}
+.team-photo::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 40%;
+  background: linear-gradient(to top, hsla(20, 15%, 5%, 0.55), transparent);
+  z-index: 1;
+  pointer-events: none;
+}
+.team-photo img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.6s ease;
+}
+.team-photo img.is-loaded { opacity: 1; }
+.team-member:hover .team-photo img.is-loaded { transform: scale(1.04); }
+
+.team-member-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.35rem 1.25rem 1.5rem;
+  border-top: 1px solid hsla(30, 42%, 39%, 0.35);
+}
+.team-member h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.team-role-title {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+html[dir="rtl"] .team-role-title { letter-spacing: 0.02em; text-transform: none; }
+.team-member-body > p:last-child {
+  margin-top: 0.85rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
 
 .team-role {
   border-top: 1px solid hsla(30, 42%, 39%, 0.45);

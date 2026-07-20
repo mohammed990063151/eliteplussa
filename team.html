@@ -11,7 +11,7 @@
 </head>
 <body data-title-key="team.meta">
 
-  <header>
+  <header class="header-solid">
     <div class="header-inner">
       <a href="index.html" class="logo">
         <span class="logo-mark text-gradient-gold">E+</span>
@@ -61,29 +61,49 @@
   </section>
 
   <section class="team">
-    <div class="team-grid">
-      <article class="team-role reveal">
-        <span class="role-num" data-i18n="team.r1.num">01</span>
-        <h3 data-i18n="team.r1.title">Capital Allocation</h3>
-        <p data-i18n="team.r1.body">Structures institutional access to vetted opportunities and aligns capital with sovereign-priority industrial growth.</p>
+    <div class="team-members team-members-page">
+      <article class="team-member reveal">
+        <div class="team-photo" data-initials="FA">
+          <img src="team/fahad-alrashid.svg" alt="" data-i18n-alt="team.m1.alt" />
+        </div>
+        <div class="team-member-body">
+          <h3 data-i18n="team.m1.name">Fahad Al-Rashid</h3>
+          <p class="team-role-title" data-i18n="team.m1.role">Managing Partner — Capital Allocation</p>
+          <p data-i18n="team.m1.bio">Leads institutional allocation strategy and aligns sovereign-priority capital with vetted industrial growth opportunities across the Kingdom.</p>
+        </div>
       </article>
 
-      <article class="team-role reveal d1">
-        <span class="role-num" data-i18n="team.r2.num">02</span>
-        <h3 data-i18n="team.r2.title">Deal Origination</h3>
-        <p data-i18n="team.r2.body">Sources and qualifies high-barrier projects across petrochemicals, infrastructure, manufacturing, and technology.</p>
+      <article class="team-member reveal d1">
+        <div class="team-photo" data-initials="NS">
+          <img src="team/noura-alsaud.svg" alt="" data-i18n-alt="team.m2.alt" />
+        </div>
+        <div class="team-member-body">
+          <h3 data-i18n="team.m2.name">Noura Al-Saud</h3>
+          <p class="team-role-title" data-i18n="team.m2.role">Head of Deal Origination</p>
+          <p data-i18n="team.m2.bio">Sources and qualifies high-barrier projects in petrochemicals, infrastructure, manufacturing, and technology — from first contact to diligence-ready pipelines.</p>
+        </div>
       </article>
 
-      <article class="team-role reveal">
-        <span class="role-num" data-i18n="team.r3.num">03</span>
-        <h3 data-i18n="team.r3.title">Institutional Relations</h3>
-        <p data-i18n="team.r3.body">Maintains trusted channels with funds, corporates, and strategic partners across the Connected Capital network.</p>
+      <article class="team-member reveal d2">
+        <div class="team-photo" data-initials="KH">
+          <img src="team/khalid-hajri.svg" alt="" data-i18n-alt="team.m3.alt" />
+        </div>
+        <div class="team-member-body">
+          <h3 data-i18n="team.m3.name">Khalid Al-Hajri</h3>
+          <p class="team-role-title" data-i18n="team.m3.role">Director — Institutional Relations</p>
+          <p data-i18n="team.m3.bio">Builds trusted channels with funds, corporates, and strategic partners across the Connected Capital network and regional joint ventures.</p>
+        </div>
       </article>
 
-      <article class="team-role reveal d1">
-        <span class="role-num" data-i18n="team.r4.num">04</span>
-        <h3 data-i18n="team.r4.title">Compliance &amp; Governance</h3>
-        <p data-i18n="team.r4.body">Upholds institutional standards, diligence protocols, and governance frameworks across every allocation pathway.</p>
+      <article class="team-member reveal d3">
+        <div class="team-photo" data-initials="LA">
+          <img src="team/layla-ansari.svg" alt="" data-i18n-alt="team.m4.alt" />
+        </div>
+        <div class="team-member-body">
+          <h3 data-i18n="team.m4.name">Layla Al-Ansari</h3>
+          <p class="team-role-title" data-i18n="team.m4.role">Head of Compliance &amp; Governance</p>
+          <p data-i18n="team.m4.bio">Upholds institutional standards, diligence protocols, and governance frameworks so every allocation pathway meets sovereign-grade expectations.</p>
+        </div>
       </article>
     </div>
 
@@ -150,6 +170,16 @@
     document.getElementById('icon-menu').style.display = 'block';
     document.getElementById('icon-close').style.display = 'none';
   }
+
+  document.querySelectorAll('.team-photo img').forEach((img) => {
+    const markLoaded = () => img.classList.add('is-loaded');
+    if (img.complete && img.naturalWidth > 0) markLoaded();
+    img.addEventListener('load', markLoaded);
+    img.addEventListener('error', () => {
+      img.classList.remove('is-loaded');
+      img.style.display = 'none';
+    });
+  });
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
